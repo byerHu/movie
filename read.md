@@ -87,4 +87,74 @@
         user_id:所属会员编号
         ip:最近登录IP地址
         addtime:最近登录时间
+
+    5 定义标签数据模型
+        id:编号
+        name:标题
+        movies:电影外键关联
+        addtime:创建时间
+
+    6 定义电影数据模型
+        id:编号，title:电影标题，url:电影地址
+        info:电影简介,logo:电影封面，star:星级
+        playnum:电影播放量，commentnum:电影评论量，tag_id:所属标签
+        area:地区，release_time:发布时间，length:电影长度
+        addtime:添加时间，comments:电影评论外键关联
+        moviecols:电影收藏外键关联
+
+    7 定义上映预告数据模型
+        id:编号
+        title:上映预告标题
+        logo:上映预告封面
+        addtime:创建时间
+
+    8 定义评论数据模型
+        id:编号
+        content:评论内容
+        movie_id:所属电影
+        user_id:所属用户
+        addtime:评论时间
+
+    9 定义收藏电影数据模型
+        id:编号
+        movie_id:所属电影
+        user_id:所属用户
+        addtime:收藏时间
+
+    10 定义权限数据模型
+        id:编号
+        name:名称
+        url:地址
+        addtime:添加时间
+
+    11 定义角色数据模型
+        id:编号
+        name:名称
+        auths:权限列表
+        addtime:创建时间
+        admins:管理员外键
+
+    12 定义管理员数据模型
+        id:编号
+        name:管理员名称
+        pwd:管理员密码
+        is_super:是否超级管理员
+        role_id:角色编号
+        addtime:创建时间
+        adminlogs:管理员登录日志外键关联
+        oplogs:操作日志外键关联
+
+    13 定义管理员登录日志数据模型
+        id:编号
+        admin_id:所属管理员编号
+        ip:最近登录IP地址
+        addtime:最近登录时间
+
+    14 定义操作日志数据模型
+        id:编号
+        admin_id:所属管理员编号
+        ip:操作IP地址
+        reason:操作原因
+        addtime:创建时间
+
         

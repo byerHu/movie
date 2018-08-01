@@ -3,6 +3,21 @@
 
 微电影网站：<br>
 
+环境搭建<br>
+
+    1 virtualenv的使用
+        （1）创建虚拟环境:virtualenv venv
+        （2）激活虚拟环境:source venv/bin/activate   windows下:Script/activate
+        （3）退出虚拟环境:deactivate
+    2 flask的安装
+        （1）安装前检测:pip freeze
+        （2）安装flask:pip install flask
+        （3）安装后检测:pip freeze
+
+项目模块<br>
+
+
+
     1 前台模块（home）
         数据模型:models.py
         表单处理:home/forms.py

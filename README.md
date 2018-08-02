@@ -172,3 +172,77 @@
         reason:操作原因
         addtime:创建时间
 
+前台布局的搭建<br>
+
+    1 静态文件的引入:{{ url_for('static',filename='文件路径') }}
+    2 定义路由:{{ url_for('模块名.视图名',变量=参数) }}
+    3 定义数据块: {% block 数剧块名称 %} ... {% endblock %}
+
+会员登录页面的搭建<br>
+
+    # 登录
+    @home.route("/login/")
+    def login():
+        return render_template("home/login.html")
+    # 退出登录
+    @home.route("/logout/")
+    def logout():
+        return redirect(url_for('home.login'))  # 此处要导入redirect和url_for模块：redirect方法可以重定向，url_for是路由生成器
+
+会员注册页面搭建<br>
+
+    # 注册
+    @home.route("/register/")
+    def register():
+        return render_template("home/register.html")
+
+会员中心页面的搭建<br>
+
+
+    # 会员中心
+    @home.route('/user/')
+    # 修改密码
+    @home.route('/pwd/')
+    # 评论记录
+    @home.route('/comments/')
+    # 登录日志
+    @home.route('/loginlog/')
+    # 收藏日志
+    @home.route('/moviecol/')
+
+电影列表页面的搭建<br>
+
+
+    # 列表
+    @home.route("/")
+    def index():
+        return render_template("home/index.html")
+    # 动画
+    @home.route("/animation/")
+    def animation():
+        return render_template("home/animation.html")
+
+
+电影搜索页面的搭建<br>
+
+    #搜索
+    @home.route("/search/")
+    def search():
+        return render_template('home/search.html')
+
+
+电影详情页面的搭建
+
+    # 详情
+    @home.route("/play/")
+    def play():
+        return render_template('home/play.html')
+
+
+404页面的搭建
+
+    # 404
+    @app.errorhandler(404)
+    def page_not_found(error):
+        return render_template("common/404.html",404)
+    # 404页面是要放置在初始化文件中的

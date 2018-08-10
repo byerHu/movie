@@ -1,8 +1,15 @@
 # coding:utf8
 from flask import Flask, render_template
+from flask_sqlalchemy import SQLAlchemy
+import pymysql
 
 app = Flask(__name__)
+app.config['SQLALCHEMY_DATABASE_URI'] = "mysql+pymysql://root:root@localhost:3306/movie"  # 连接movie数据库
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
+app.config['SECRET_KEY'] = 'b26273f62a0d44568360ee8570221c24' # 随机生成一个随机字符串 uuid.uuid4().hex
+
 app.debug = True
+db = SQLAlchemy(app)  # 实例化数据库对象
 
 from app.home import home as home_blueprint  # 导入home蓝图对象
 from app.admin import admin as admin_blueprint  # 导入admin蓝图对象

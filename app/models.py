@@ -1,14 +1,6 @@
 # coding:utf8
-from flask import Flask
-from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
-import pymysql
-
-app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = "mysql+pymysql://root:123456@localhost:3306/movie"  # 连接movie数据库
-app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
-
-db = SQLAlchemy(app)  # 实例化数据库对象
+from app import db
 
 
 # 会员数据模型
@@ -155,6 +147,10 @@ class Admin(db.Model):
     def __repr__(self):
         return "<Admin %r>" % self.name
 
+    def check_pwd(self, pwd):
+        from werkzeug.security import check_password_hash
+        return check_password_hash(self.pwd, pwd)
+
 
 # 管理员登录日志模型
 class Adminlog(db.Model):
@@ -181,6 +177,7 @@ class Oplog(db.Model):
         return "<Oplog %r>" % self.id
 
 
+'''
 if __name__ == "__main__":
     # db.create_all()  # 创建所有的数据表
     # 提示No module named 'MySQLdb' 使用 pymysql库
@@ -188,15 +185,15 @@ if __name__ == "__main__":
 
 
     # 插入一条Role记录
-    '''
+
         role = Role(
             name="超级管理员",
             auths=""
         )
         db.session.add(role)
         db.session.commit()
-    '''
-    # 插入一条管理员数据
+
+    插入一条管理员数据
     from werkzeug.security import generate_password_hash
     admin = Admin(
         name = "byer",
@@ -206,3 +203,4 @@ if __name__ == "__main__":
     )
     db.session.add(admin)
     db.session.commit()
+'''

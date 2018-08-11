@@ -395,7 +395,12 @@
     4 访问控制：无
 
 # 标签管理
-1 模型：Tag
-2 表单：TagForm
-3 请求方法：GET,POST
-4 访问控制：@admin_login_req
+    1 模型：Tag
+    2 表单：TagForm
+    3 请求方法：GET,POST
+    4 访问控制：@admin_login_req
+# 电影管理
+    1 模型：Movie
+    2 表单：MovieForm
+    3 请求方法：GET,POST
+    4 访问控制：@admin_login_req
